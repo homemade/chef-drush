@@ -1,0 +1,1 @@
+default['drush']['version'] = '5.8.0'
