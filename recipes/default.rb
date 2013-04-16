@@ -1,4 +1,4 @@
-# Author:: Mark Sonnabaum <mark.sonnabaum@acquia.com>
+# Author:: Benedict Steele <operations@homemade.io>
 # Cookbook Name::  drush
 # Recipe:: default
 #
