@@ -26,6 +26,8 @@ end
 
 php_pear "drush" do
   channel dr.channel_name
-  version node['drush']['version']
+  if node['drush']['version'] != "latest"
+    version "#{node[:drush][:version]}"
+  end 
   action :install
 end
