@@ -29,5 +29,5 @@ php_pear "drush" do
   if node['drush']['version'] != "latest"
     version "#{node[:drush][:version]}"
   end 
-  action :install
+  action :upgrade if node[:drush][:version] == "latest"
 end
