@@ -14,8 +14,11 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
+include_recipe "apt"
+include_recipe "php"
 
-dr = php_pear_channel "pear.drush.org" do
+
+drush_channel = php_pear_channel "pear.drush.org" do
   action :discover
 end
 
@@ -25,9 +28,9 @@ end
 
 
 php_pear "drush" do
-  channel dr.channel_name
+  channel drush_channel.channel_name
   if node['drush']['version'] != "latest"
-    version "#{node[:drush][:version]}"
+    version node['drush']['version']
   end 
-  action :upgrade if node[:drush][:version] == "latest"
+  action :install
 end
