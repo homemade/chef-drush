@@ -17,7 +17,6 @@
 include_recipe "apt"
 include_recipe "php"
 
-
 drush_channel = php_pear_channel "pear.drush.org" do
   action :discover
 end
@@ -29,8 +28,8 @@ end
 
 php_pear "drush" do
   channel drush_channel.channel_name
-  if node['drush']['version'] != "latest"
-    version node['drush']['version']
+  if node[:drush][:version] != "latest"
+    version node[:drush][:version]
   end 
   action :install
 end
